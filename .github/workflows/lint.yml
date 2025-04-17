@@ -22,11 +22,11 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version-file: ".python-version"
+          python-version-file: "api/.python-version"
 
       - name: Install the project
-        run: uv sync --only-dev
+        run: uv sync --only-dev --directory api
 
       - name: Run Black Check
-        run: uv run black --check .
+        run: uv run --directory api black --check .
 
