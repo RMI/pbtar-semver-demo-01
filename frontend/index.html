@@ -1,0 +1,74 @@
+<script>
+  async function callApi(path, api_key = "") {
+    const url = "http://localhost" + path;
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          'accept': 'application/json',
+          'X-API-Key': api_key
+        }
+      });
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+
+      const json = await response.json();
+      return(json);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  function arr2tbl(array){
+    const row=(obj,what,cell)=>`<tr>${Object[what](obj).map(k=>`<t${cell}>${k}</t${cell}>`).join("")}<tr>`;
+    return row(array[0],"keys","h") + array.map(o=>row(o,"values","d")).join("");
+  }
+
+  function loadData() {
+    callApi(document.getElementById("route").value, api_key = document.getElementById("api_key").value)
+    .then((data) => {
+      const my_table = document.querySelector("table#my_table");
+      if (Array.isArray(data)) {
+        my_table.innerHTML = arr2tbl(data);
+      } else {
+        my_table.innerHTML = null;
+      }
+    });
+
+    callApi("/tables")
+    .then((data) => {
+      const tables_div = document.querySelector("div#tables_div");
+      tables_div.innerHTML = "tables available: " + data.tables;
+    });
+
+    callApi(document.getElementById("route").value, api_key = document.getElementById("api_key").value)
+    .then((data) => {
+      const response_div = document.querySelector("div#response_div");
+      response_div.innerHTML = JSON.stringify(data);
+    });
+  }
+</script>
+
+enter API key: <input type="text" id="api_key" value="abc123" onkeydown="if(event.key === 'Enter') { loadData(); }"><br>
+route: <input type="text" id="route" value="/api/dataset" onkeydown="if(event.key === 'Enter') { loadData(); }"><br>
+<button type="button" onclick="loadData()">submit</button>
+
+<hr>
+
+<div id="tables_div"></div>
+<br>
+
+<hr>
+
+<h3>JSON response:</h3>
+<div id="response_div"></div>
+<br>
+
+<hr>
+
+<table id="my_table"></table>
+
+<script>
+  loadData();
+</script>
