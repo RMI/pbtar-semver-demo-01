@@ -19,7 +19,7 @@ cd pbtar
 
 2. Create an `.env` file to store the desired API key, (internal) API port, DB port and Frontend port
 ```sh
-echo -e "API_KEY=abc123\nAPI_PORT=8080\nDB_PORT=5432\nPBTAR_FRONTEND_PORT=3000" > .env
+echo -e "PBTAR_API_KEY=abc123\nPBTAR_API_PORT=8000\nPBTAR_DB_PORT=5432\nPBTAR_FRONTEND_PORT=80" > .env
 ```
 
 ### Run the services with docker compose
@@ -35,15 +35,15 @@ docker compose up --detach
 docker compose up --detach --build
 ```
 
-The primary web service (React) will be accessible at http://localhost:3000.
+The primary web service (React) will be accessible at http://localhost.
 
-The API and API documentation (Swagger) will be accessible at http://localhost:80.
+The API and API documentation (Swagger) will be accessible at http://localhost:8000.
 
 ### Make a request from the API
 
 ```sh
 curl -X 'GET' \
-  'http://localhost/scenarios' \
+  'http://localhost:8000/scenarios' \
   -H 'accept: application/json' \
   -H 'X-API-Key: abc123'
 ```
