@@ -12,6 +12,21 @@ export default [
       react: reactPlugin,
     },
     languageOptions: {
+      globals: {
+        console: true,
+        document: true,
+        window: true,
+        navigator: true,
+
+        // Timer functions
+        setTimeout: true,
+        clearTimeout: true,
+
+        // Network APIs
+        fetch: true,
+        Request: true,
+        Response: true
+      },
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
