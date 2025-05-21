@@ -44,7 +44,10 @@ npm install --save-dev <library> # for development dependencies
 ```
 
 ## Testing
-Coming soon... (likely using vitest)
+This project uses Vitest for unit testing. To run the tests, use:
+``` bash
+npm run test
+```
 
 ## Linting and Formatting
 This project uses ESLint and Prettier for code consistency:
