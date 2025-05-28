@@ -1,19 +1,9 @@
 # Pathways-based transition assessment repository (pbtar)
 
-[![Test DB service](https://github.com/RMI/pbtar/actions/workflows/db-test.yml/badge.svg?branch=main)](https://github.com/RMI/pbtar/actions/workflows/db-test.yml)
-
-[![Lint API Service](https://github.com/RMI/pbtar/actions/workflows/api-lint.yml/badge.svg?branch=main)](https://github.com/RMI/pbtar/actions/workflows/api-lint.yml)
-[![Test API service](https://github.com/RMI/pbtar/actions/workflows/api-test.yml/badge.svg?branch=main)](https://github.com/RMI/pbtar/actions/workflows/api-test.yml)
-
 [![Lint Frontend service](https://github.com/RMI/pbtar/actions/workflows/frontend-lint.yml/badge.svg?branch=main)](https://github.com/RMI/pbtar/actions/workflows/frontend-lint.yml)
 [![Test Frontend service](https://github.com/RMI/pbtar/actions/workflows/frontend-test.yml/badge.svg?branch=main)](https://github.com/RMI/pbtar/actions/workflows/frontend-test.yml)
 
-[![Test service integration](https://github.com/RMI/pbtar/actions/workflows/integration-test.yml/badge.svg?branch=main)](https://github.com/RMI/pbtar/actions/workflows/integration-test.yml)
-[![Docker](https://github.com/RMI/pbtar/actions/workflows/api-docker-build-and-push.yml/badge.svg?branch=main)](https://github.com/RMI/pbtar/actions/workflows/api-docker-build-and-push.yml)
-
 ## Running the application
-
-### Setup
 
 1. Clone the Repo
 
@@ -22,12 +12,13 @@ git clone https://github.com/RMI/pbtar
 cd pbtar
 ```
 
-2. Create an `.env` file to store the desired API key, (internal) API port, DB port and Frontend port
+2. Create an `.env` file to store the desired frontend port
+
 ```sh
 cp .env.example .env
 ```
 
-### Run the services with docker compose
+3. Run the services with `docker compose`
 
 ```sh
 # build the image
@@ -40,29 +31,79 @@ docker compose up --detach
 docker compose up --detach --build
 ```
 
-The primary web service (React) will be accessible at http://localhost.
+The React web service will be accessible at http://localhost.
 
-The API and API documentation (Swagger) will be accessible at http://localhost:8000.
-
-### Make a request from the API
-
-```sh
-curl -X 'GET' \
-  'http://localhost:8000/scenarios' \
-  -H 'accept: application/json' \
-  -H 'X-API-Key: abc123'
-```
-
-Defaults to the API key "abc123", but an alternate key (matching what is in your `.env` file) can be input and submitted on the page.
-
-### Shutdown the docker container
+4. Shutdown the docker container
 
 ```sh
 docker compose down
+```
 
-# also delete the database volume when shutting down the container
-docker compose down --volumes
+## Development
+
+### Set-Up
+
+This project uses Node.js and npm for dependency management.
+
+To install Node.js, follow the [official installation guide](https://nodejs.org/en/download/).
+
+1. Install Dependencies
+
+```bash
+cd pbtar
+npm install
+```
+
+2. Running the Frontend
+   You can locally serve the frontend _alone_ with:
+
+```bash
+npm run dev
+```
+
+The local development service will be accessible at `http://localhost:3000`. It automatically reloads on file changes.
+
+3. Running with `docker compose`
+   If you prefer to run the entire application stack using Docker, you can use the following command:
+
+```bash
+docker compose up --build
+```
+
+This will start all services defined in the `docker-compose.yml` file, including the frontend, backend, and database. The frontend will be accessible at `http://localhost`.
+
+## Contributing
+
+Dependencies are managed using `npm`. To add a new library, run:
+
+```bash
+npm install <library> # for runtime dependencies
+npm install --save-dev <library> # for development dependencies
+```
+
+## Testing
+
+This project uses Vitest for unit testing. To run the tests, use:
+
+```bash
+npm run test
+```
+
+## Linting and Formatting
+
+This project uses ESLint and Prettier for code consistency:
+
+```bash
+# Check code for issues
+npm run lint
+
+# Fix linting issues automatically
+npm run lint:fix
+
+# Format code with Prettier
+npm run format
 ```
 
 ## License
- This project is licensed under the [MIT License](LICENSE.txt) 
+
+This project is licensed under the [MIT License](LICENSE.txt)
