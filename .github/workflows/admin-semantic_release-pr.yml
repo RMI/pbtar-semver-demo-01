@@ -83,7 +83,7 @@ jobs:
               >> /tmp/semantic-release-clean.txt
           fi
 
-      - name: prepare semantic-release output for comment
+      - name: preview semantic-release output for comment
         run: |
           cat /tmp/semantic-release-clean.txt
 
