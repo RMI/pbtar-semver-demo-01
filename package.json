@@ -1,6 +1,6 @@
 {
   "name": "pbtar_frontend",
-  "version": "0.0.1.9002",
+  "version": "0.0.0-semantic-release",
   "type": "module",
   "description": "Front-end for the pathways-based transition assessment repository (pbtar)",
   "main": "main.jsx",
