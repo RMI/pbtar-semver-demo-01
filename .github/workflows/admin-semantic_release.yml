@@ -4,6 +4,7 @@ on:
     branches:
       - production
       - main
+      - next
 
 name: Release
 

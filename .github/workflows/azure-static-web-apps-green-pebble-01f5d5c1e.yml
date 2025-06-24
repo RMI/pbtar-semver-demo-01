@@ -1,18 +1,20 @@
-name: Azure Static Web Apps CI/CD
-
+---
 on:
   push:
     branches:
       - production
       - main
+      - next
 
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - "hotfix/**"
-      - "release/**"
       - main
       - production
+      - next
+
+name: Azure Static Web Apps CI/CD
+concurrency: azure-static-web-app
 
 permissions:
   contents: read
