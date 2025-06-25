@@ -137,7 +137,7 @@ npm run format
 ## Releases
 
 This project uses [`semantic-release`](https://semantic-release.gitbook.io/semantic-release) to manage release versions.
-See "Releases" on the right of the main GitHub repository page to see the latests released version, or click thriough to see pre-releases.
+See "Releases" on the right of the main GitHub repository page to see the latest released version, or click through to see pre-releases.
 
 ### Managing Releases (For developers)
 
