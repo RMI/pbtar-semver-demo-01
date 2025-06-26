@@ -151,3 +151,5 @@ When opening a Pull Request, an GitHub workflow will dry-run the release process
 ## License
 
 This project is licensed under the [MIT License](LICENSE.txt)
+
+Foo
