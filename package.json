@@ -76,6 +76,10 @@
               "release": "patch"
             },
             {
+              "type": "ci",
+              "release": "patch"
+            },
+            {
               "type": "docs",
               "release": "patch"
             },
