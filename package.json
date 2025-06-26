@@ -1,6 +1,6 @@
 {
   "name": "pbtar_frontend",
-  "version": "0.0.1.9002",
+  "version": "0.0.0-semantic-release",
   "type": "module",
   "description": "Front-end for the pathways-based transition assessment repository (pbtar)",
   "main": "main.jsx",
@@ -41,6 +41,7 @@
     "jsdom": "^26.1.0",
     "postcss": "^8.5.6",
     "prettier": "^3.6.0",
+    "semantic-release": "^24.2.5",
     "simple-git": "^3.28.0",
     "tailwindcss": "^4.1.7",
     "typescript": "^5.8.3",
@@ -50,5 +51,71 @@
   },
   "engines": {
     "node": ">=20.0.0"
+  },
+  "release": {
+    "branches": [
+      "production",
+      {
+        "name": "main",
+        "prerelease": "dev"
+      },
+      {
+        "name": "next",
+        "prerelease": "rc"
+      }
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "angular",
+          "releaseRules": [
+            {
+              "type": "build",
+              "release": "patch"
+            },
+            {
+              "type": "docs",
+              "release": "patch"
+            },
+            {
+              "type": "perf",
+              "release": "patch"
+            },
+            {
+              "type": "refactor",
+              "release": "patch"
+            },
+            {
+              "type": "style",
+              "release": "patch"
+            },
+            {
+              "type": "test",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false,
+          "tarballDir": "dist"
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "dist/*.tgz",
+              "label": "tarball"
+            }
+          ]
+        }
+      ]
+    ]
   }
 }

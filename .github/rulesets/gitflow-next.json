@@ -1,14 +1,13 @@
 {
-  "id": 5772902,
-  "name": "gitflow-release",
+  "name": "gitflow-next",
   "target": "branch",
   "source_type": "Repository",
-  "source": "RMI/pbtar",
+  "source": "RMI/pbtar-semver-demo-01",
   "enforcement": "active",
   "conditions": {
     "ref_name": {
       "exclude": [],
-      "include": ["refs/heads/release/**/*"]
+      "include": ["refs/heads/next"]
     }
   },
   "rules": [
