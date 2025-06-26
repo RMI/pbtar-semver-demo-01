@@ -6,7 +6,7 @@ const Header: React.FC = () => {
   const location = useLocation();
 
   return (
-    <header className="bg-bluespruce text-white shadow-md">
+    <header className="bg-solar-400 text-white shadow-md">
       <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
         <Link
           to="/"
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
           />
           <div>
             <h1 className="text-xl md:text-2xl font-bold tracking-tight">
-              Climate Transition Scenarios Repository
+              Semver Demo!
             </h1>
             <p className="text-xs md:text-sm text-white">by RMI</p>
           </div>
