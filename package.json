@@ -110,53 +110,53 @@
             "types": [
               {
                 "type": "feat",
-                "section": "✨ Features",
+                "section": "Features",
                 "hidden": false
 
               },
               {
                 "type": "fix",
-                "section": "🐞 Fixes",
+                "section": "Fixes",
                 "hidden": false
 
               },
               {
                 "type": "build",
-                "section": "🔧 Build System",
+                "section": "Build System",
                 "hidden": false
               },
               {
                 "type": "ci",
-                "section": "🤖 CI",
+                "section": "Continuous Integration and Delivery (CI/CD)",
                 "hidden": false
               },
               {
                 "type": "docs",
-                "section": "📝 Docs",
+                "section": "Docs",
                 "hidden": false
 
               },
               {
                 "type": "refactor",
-                "section": "♻️ Refactors",
+                "section": "Refactors",
                 "hidden": false
 
               },
               {
                 "type": "perf",
-                "section": "⚡️ Performance",
+                "section": "Performance",
                 "hidden": false
 
               },
               {
                 "type": "style",
-                "section": "💅 Style",
+                "section": "Style",
                 "hidden": false
 
               },
               {
                 "type": "test",
-                "section": "✅ Tests",
+                "section": "Tests",
                 "hidden": false
 
               }
