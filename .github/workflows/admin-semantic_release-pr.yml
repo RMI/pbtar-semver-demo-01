@@ -32,7 +32,8 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git merge "origin/$HEAD_BRANCH"
+          git merge "origin/$HEAD_BRANCH" --squash --ff-only
+          git commit --no-edit
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
